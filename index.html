@@ -27,12 +27,27 @@ https://www.youtube.com/watch?v=Fis_Q3rkgtM -->
                 name: 'Bob',
                 age: 30
             }
-
+            
+            handleClick(e){
+                // console.log(e.target);
+                console.log(this.state);
+            }
+            hover(e){
+                console.log(e.target, e.pageX, e.pageY);
+            }
+            handleCopy(e){
+                console.log("you just copied me!")
+            }
             render() {
                 return (
                     <div className="app-content">
                         <h2>Hey</h2>
                         <p>My name is {this.state.name} and my age is {this.state.age}</p>
+                        <button onClick={this.handleClick}>Click Me!</button> 
+                        <br></br>
+                        <button onMouseOver={this.hover}>Hover Me!</button>
+                        <br></br>
+                        <p onCopy={this.handleCopy}>What we think, we become!</p>
                     </div>
                 )
             }
