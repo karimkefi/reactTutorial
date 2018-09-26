@@ -30,29 +30,40 @@ https://www.youtube.com/watch?v=Fis_Q3rkgtM -->
       age: 30
     }
 
-    handleChange = (e) => {
+    // FUNCTIONS
+    handleClick = (e) => {
+      // console.log(e.target);
+
+      //here we are modifying the state if user clicks on button
       this.setState({
-        name: e.target.value
+        name: 'Yoshi',
+        age: 25
       })
+      console.log(this.state)
     }
-    handleSubmit = (e) => {
-      e.preventDefault();       //you don't want the page to refresh
-      console.log('form submitted', this.state);
+    hover = (e) => {
+      console.log(e.target, e.pageX, e.pageY)
+    }
+    handleCopy = () => {
+      console.log('you just copied me!')
     }
 
-    render(){
-      return(
+    render () {
+      return (
         <div className="app-content">
-          <h1>My name is {this.state.name}</h1>
-          <form onSubmit={this.handleSubmit}>
-            <input type="text" onChange={this.handleChange} />
-            <button>Submit</button>
-          </form>
+          <h2>Hey</h2>
+          <p>My name is {this.state.name} and my age is {this.state.age}</p>
+          <button onClick={this.handleClick}>Click Me!</button>
+          <br></br>
+          <button onMouseOver={this.hover}>Hover Me!</button>
+          <br></br>
+          <p onCopy={this.handleCopy}>What we think, we become!</p>
         </div>
       )
     }
   }
-  ReactDOM.render(<App />, document.getElementById('app'));
+
+  ReactDOM.render(<App/>, document.getElementById('app'))
 </script>
 
 </body>
